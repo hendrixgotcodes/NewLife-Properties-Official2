@@ -1,0 +1,436 @@
+* {
+  margin: 0em;
+  padding: 0em;
+  box-sizing: border-box;
+}
+:root {
+  --h3: 1.65rem;
+  --h3-padding: 2rem;
+}
+html,
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+.btn-large {
+  width: 20%;
+  height: 8%;
+  background-color: rgb(46, 80, 59);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat Alternates" sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  border: 1px solid #2e503b;
+}
+.btn-large:hover {
+  cursor: pointer;
+}
+.current-page {
+  text-decoration: underline;
+  font-size: 1.4rem;
+}
+.current-page::after {
+  text-decoration: underline;
+}
+.hover {
+  position: relative;
+  overflow: hidden;
+}
+.hover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 55%;
+  background-color: rgba(255, 255, 255, 0.123);
+  transform: translate(-280px) skewX(-20deg);
+  transition: 0.3s;
+}
+.hover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 55%;
+  background-color: rgba(255, 255, 255, 0.123);
+  transform: translate(418px) skewX(-20deg);
+  transition: 0.3s;
+}
+.hover:hover::before {
+  transform: translate(-10px) skewX(-20deg);
+}
+.hover:hover::after {
+  transform: translate(158px) skewX(-20deg);
+}
+.menu {
+  position: fixed;
+  bottom: 2rem;
+  left: 1rem;
+  height: 4.4rem;
+  width: 4.4rem;
+  background-color: rgba(0, 0, 0, 0.719);
+  border-radius: 50%;
+  border: 1px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+nav {
+  /* background-color: rgb(29, 100, 78); */
+  border-bottom: 2px solid #000;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+nav #img-container {
+  width: 8rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin-right: 30rem; */
+}
+#img-container img {
+  height: 100%;
+  width: 100%;
+  padding: 20%;
+}
+#img-container span {
+  display: block;
+  width: 100%;
+  font-size: 0.8rem;
+}
+.nav-bar ul {
+  width: 60%;
+  display: flex;
+  list-style: none;
+  /* color: #fff; */
+  display: flex;
+  justify-content: space-around;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3rem;
+}
+.nav-bar li {
+  /* margin-right: 15rem; */
+  /* background-color: #fff; */
+  color: #fff;
+  transition: 0.6s;
+}
+.nav-bar li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  position: relative;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+}
+.nav-bar li a span {
+  padding: 0.4rem;
+}
+.nav-bar li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-top: 1.3px solid #000;
+  border-bottom: 1.3px solid #000;
+  top: 0;
+  left: 0;
+  transform: scaleY(1.5);
+  opacity: 0;
+  /* z-index: -1; */
+  transition: 0.3s;
+}
+.nav-bar li a:hover::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.nav-bar li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  top: 1px;
+  left: 0;
+  transition: 0.3s ease;
+  transform: scale(0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+.nav-bar li a:hover::after {
+  transform: scale(1);
+  /* z-index: -1; */
+}
+.nav-bar li a:hover {
+  color: #fff;
+}
+#search-bar {
+  width: 30%;
+  display: flex;
+  height: 2.5em;
+  align-items: center;
+}
+
+#searchBox {
+  width: 0;
+  height: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-bottom: 1.4px solid #000;
+  border-right-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  /* border-radius: 4px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0; */
+  font-size: 1rem;
+  animation: extend-border 2.3s 1.5s forwards ease-out;
+}
+@keyframes extend-border {
+  40% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+#searchBox:focus {
+  outline: none;
+}
+#searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.3rem;
+  width: 30%;
+  background-color: #000;
+  border: 1px solid rgb(0, 0, 0);
+  color: #fff;
+  transition: 0.6s;
+  /* border-radius: 4px; */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#searchButton:hover {
+  background-color: rgb(8, 24, 8);
+  color: #fff;
+  cursor: pointer;
+}
+
+#landingPage {
+  height: 100vh;
+  background: url("../img/scene.jpg") no-repeat center center/cover;
+}
+#filter {
+  background-color: hsla(0, 0%, 0%, 0.578);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  line-height: 4rem;
+}
+
+#filter h1 {
+  font-size: 5rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 5.5rem;
+
+  font-family: "Oswald", sans-serif;
+}
+#filter p {
+  font-size: 1.4rem;
+}
+.btn-box {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-large {
+  margin: 0 1rem;
+  height: 70%;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+.description-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  width: 90vw;
+  text-align: justify;
+  position: relative;
+}
+.description-div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1rem solid rgb(46, 80, 59, 0.4);
+  padding: 0 2rem;
+  padding-bottom: 2rem;
+}
+
+.description-div > div .h3 {
+  font-size: var(--h3);
+  text-transform: uppercase;
+  margin-bottom: var(--h3-padding);
+  font-weight: 400;
+  position: relative;
+}
+.description-div h3::after {
+  content: "";
+  height: 0.1rem;
+  width: 40%;
+  background-color: #000;
+  position: absolute;
+  top: 2.3rem;
+  left: 5.5rem;
+  border-radius: 20rem;
+}
+.description-div p {
+  font-size: 1.2rem;
+  /* font-weight: 400; */
+  color: #969595;
+}
+.showcase {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  width: 90vw;
+  text-align: justify;
+  padding-top: 0;
+}
+.showcase .h3 {
+  font-size: 1.6rem;
+  color: rgb(46, 80, 59, 0.6);
+}
+.houselisting {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2rem;
+  color: #fff;
+}
+.houses {
+  width: 100%;
+  height: 20rem;
+  background-color: #444;
+  margin: 1rem;
+  display: flex;
+}
+.houses .housePic {
+  height: 100%;
+  position: relative;
+  flex: 3;
+}
+.houses .housePic::before {
+  content: "New";
+  width: 8%;
+  height: 7%;
+  background-color: #ff0000;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.houses #hotCake1 {
+  background: url("../img/houselisting/hot-cakes/hotcake1.jpg") no-repeat center
+    center/cover;
+}
+.houses #hotCake2 {
+  background: url("../img/houselisting/hot-cakes/hotcake2.jpg") no-repeat center
+    center/cover;
+}
+.houses .housedetails {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: justify;
+  border-left: 2px solid #fff;
+  flex: 1;
+}
+.houses .housedetails > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.houses .housedetails .house-name {
+  font-size: 1.6rem;
+}
+.houses .housedetails li {
+  list-style: none;
+  padding-top: 1.8rem;
+  font-size: 1.2rem;
+}
+.houses .housedetails li .material-icons {
+  font-size: 1rem;
+}
+.houses .housedetails button {
+  color: #444;
+  font-size: 1rem;
+  background-color: #fff;
+  padding: 0.7rem 1rem;
+  margin-top: 1rem;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.house-btn {
+  transition: 0.3s;
+}
+
+#btn1:hover,
+#btn2:hover {
+  color: #fff;
+  z-index: 1;
+}
+
+.house-btn::before,
+.house-btn::after {
+  background-color: #444;
+}
+.house-btn::after {
+  transform: translate(195%) skew(-20deg);
+  width: 60%;
+}
+.house-btn:hover::after {
+  transform: translate(75%) skew(-20deg);
+}
+.house-btn:hover::after,
+.house-btn:hover::before {
+  z-index: -1;
+}
